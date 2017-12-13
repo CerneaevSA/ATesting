@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>CSA</title>
+	<style type="text/css">
+		#rcorners 
+		{
+			border-radius: 25px;
+		}
+			#rcorners1 
+			{
+				border-radius: 15px 50px;
+				padding: 20px; 
+				width: 200px;
+				height: 50px; 
+			}
+				#grad 
+				{
+					background: red; /* For browsers that do not support gradients */
+					background: -webkit-linear-gradient(left, red , yellow); /* For Safari 5.1 to 6.0 */
+					background: -o-linear-gradient(right, red, yellow); /* For Opera 11.1 to 12.0 */
+					background: -moz-linear-gradient(right, red, yellow); /* For Firefox 3.6 to 15 */
+					background: linear-gradient(to right, red , yellow); /* Standard syntax */
+				}
+	</style>
+	
+	<img id="rcorners" src="\ATesting\cropped-AT-2-small-header.jpg" alt="Allied Testing" width="100%" height="400"> 
+</head>
+
+<body id="grad">
+	<p id="rcorners"></p>
+     
+		<div align="center">
+			<form name="square_solve" action="javascript:solve_equation()">
+				<input type="text" name="a_coef" size="3"><span>X</span><sup>2</sup>&nbsp;+&nbsp;
+									
+				<input type="text" name="b_coef" size="3"><span>X</span> &nbsp;+&nbsp;
+				
+				<input type="text" name="c_coef" size="3">&nbsp;=&nbsp;0
+
+				<input id="rcorners1" type="submit" value="Solve quadratic equation"
+		
+		
+
+
+
+
+		<!--Script in Javascript to get data from input X3-->						
+						<script type="text/javascript">
+						var c = document.getElementById('x3');
+						alert(I.value);
+						</script>
+						
+	<!--				<p><INPUT onclick=oms_solve_qe() tabIndex=4 type=button value="Solve quadratic equation" title="Solve quadratic equation"></p>
+-->
+		    
+			</form>
+			<p id="delta"></p>
+			<p id="h1"> Solution: <span id="square_solution">Introduce coeficient</span>
+			</p>
+			</div>
+			
+			<script language="javascript">
+				function solve_equation()
+				{
+				var a=document.square_solve.a_coef.value;
+				var b=document.square_solve.b_coef.value;
+				var c=document.square_solve.c_coef.value;
+				var sol=document.getElementById("square_solution");
+				
+				var D=(b*b)-(4*a*c);
+				document.getElementById("delta").innerHTML= "Delta: " + D;
+	
+				if(D<0)
+				{	
+					
+					string = "пара комплексно-сопряженных корней<br>x<sub>1</sub> = (";
+					string += - b / ( 2 * a );
+					string += ", ";
+					string += Math.sqrt( -D ) / ( 2 * a );
+					string += "), x<sub>2</sub> = (";
+					string += - b / ( 2 * a);
+					string += ", ";
+					string += - Math.sqrt( -D ) / ( 2 * a );
+					string += ").";
+				} else 
+					{
+					if ( D == 0 ) 
+						{
+
+							string = "два одинаковых вещественных корня:<br>x<sub>1</sub> = x<sub>2</sub> = ";
+							string += -b / ( 2 * a );
+							string += ".";
+						} else 
+							{
+								
+								string = "два различных вещественных корня:<br>x<sub>1</sub> = ";
+								string += -b / ( 2 * a ) - Math.sqrt( D ) / ( 2 * a );
+								string += ", x<sub>2</sub> = ";
+								string += -b / ( 2 * a ) + Math.sqrt( D ) / ( 2 * a );
+								string += ".";
+							}
+					}
+					  sol.innerHTML = string;
+}
+			
+				
+			</script>
+		
+	
+	
+</body>
+
+</html>
